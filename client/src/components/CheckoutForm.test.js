@@ -27,10 +27,24 @@ test("form shows success message on submit with form details", () => {
   expect(stateInput).toBeInTheDocument();
   expect(zipInput).toBeInTheDocument();
 
-  fireEvent.change(firstNameInput, { target: { value: "Barbora" }})
-  fireEvent.change(lastNameInput, { target: { value: "Dejlova" }})
+  fireEvent.change(firstNameInput, { target: { value: "barbora" }})
+  fireEvent.change(lastNameInput, { target: { value: "dejlova" }})
   fireEvent.change(addressInput, { target: { value: "street" }})
-  fireEvent.change(cityInput, { target: { value: "Leonia" }})
-  fireEvent.change(stateInput, { target: { value: "New Jersey" }})
-  fireEvent.change(zipInput, { target: { value: 7026 }})
+  fireEvent.change(cityInput, { target: { value: "leonia" }})
+  fireEvent.change(stateInput, { target: { value: "new jersey" }})
+  fireEvent.change(zipInput, { target: { value: "07605" }})
 
+  expect(getByDisplayValue(/barbora/i)).toBeInTheDocument()
+  expect(getByDisplayValue(/dejlova/i)).toBeInTheDocument()
+  expect(getByDisplayValue(/street/i)).toBeInTheDocument()
+  expect(getByDisplayValue(/leonia/i)).toBeInTheDocument()
+  expect(getByDisplayValue(/new jersey/i)).toBeInTheDocument()
+  expect(getByDisplayValue(/07605/i)).toBeInTheDocument()
+
+  const checkoutSubmit = getByTestId(/submitCheckout/i);
+  expect(checkoutSubmit).toBeInTheDocument();
+  fireEvent.click(checkoutSubmit)
+
+  const successMessage = getByTestId(/successMessage/i)
+  expect(successMessage).toBeInTheDocument()
+});
