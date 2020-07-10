@@ -30,15 +30,42 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+constructor() 
+super() -set up state with the "this" key word into a single object.
+
+this.state = {
+}
+
 2. Describe the different phases of the component lifecycle.
+
+Initialization: This is the stage where the component is constructed with the given Props and default state. This is done in the constructor of a Component Class.
+Mounting: Mounting is the stage of rendering the JSX returned by the render method itself.
+Updating: Updating is the stage when the state of a component is updated and the application is repainted.
+Unmounting: As the name suggests Unmounting is the final step of the component lifecycle where the component is removed from the page.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+Componentdidupate has a comparison to the previous state if(prevState !== currentState) useEffect asking what you would want to happen when the state changes. 
+
+componentWillMount() Function: As the name clearly suggests, this function is invoked right before the component is mounted on the DOM i.e. this function gets invoked once before the render() function is executed for the first time.
+
+componentDidMount() Function: Component did mount(CDM) handles axios requests similar to the useEffect hook. Similarly as the previous one this function is invoked right after the component is mounted on the DOM i.e. this function gets invoked once after the render() function is executed for the first time.
+
+
 4. Define stateful logic.
+
+Stateful logic is any code that uses state, but in the case of hooks I would define it as a behaviour created with the use of one or more hooks. 
 
 5. Describe how to test a React component with React Testing Library.
 
+Testing makes sure that our app is working. 
+1) Arrange - The render method renders a React element into the DOM and returns utility functions for testing the component.
+2) Act - The fireEvent method allows you to fire events to simulate user actions.
+3) Assert - makes sure it exists.
+
+
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
+
 
 ## Instructions
 
